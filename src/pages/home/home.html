@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let usuario of usuarios">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <!-- <img src="img/marty-avatar.png"> -->
+      </ion-avatar>
+      <!-- <h2>Posted by: {{usuario.data.author_fullname}}</h2> -->
+    </ion-item>
+  
+    <!-- <img src="img/advance-card-bttf.png"> -->
+  
+    <ion-card-content>
+      <!-- IMPRIME LOS DATOS DE MI ARREGLO "ARRAY" -->
+      <!-- <p *ngFor="let item of array">{{item.title}}</p> -->
+      
+      <a [attr.href]="usuario.data.url" target="_blank">{{usuario.data.title}}</a>
+      <!-- <img src="https://www.redditstatic.com/new-icon.png"> -->
+      <!-- <p>{{usuario.data.thumbnail}}</p> -->
+      <img [attr.src]="usuario.data.thumbnail" *ngIf="(usuario.data.thumbnail).indexOf('http') === 0"> 
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small> 
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{usuario.data.subreddit_subscribers}} Subscribers</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card> 
+</ion-content>
